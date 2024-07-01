@@ -1,0 +1,7 @@
+order,title,type,answer
+"1","What is your preferred language?","single-select","English"
+"2","What gender do you identify with?","single-select","Female"
+"3","What is your age?","single-select","18-29 years"
+"4","What do you hate the most in a book?","multiple-select","Lack of logic,A slow speed"
+"5","What are your favorite topics?","multiple-select","Royal Obsession,Action,Werewolf"
+"6","email","email","kolomiets.roman30@gmail.com"
