@@ -1,16 +1,15 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useRouter, usePathname } from "next/navigation";
-
+import { useRouter } from "next/navigation";
 import styled from "styled-components";
 import Button from "../components/Button";
 import { getFromLocalStorage, saveToLocalStorage } from "../utils";
+import { useTranslation } from "../../../i18n/client";
 
-const Email = () => {
+const Email = ({ params: { lng } }) => {
   const router = useRouter();
-  const path = usePathname();
-  const order = path.split("/")[1];
+  const { t } = useTranslation(lng);
 
   const {
     register,
@@ -22,8 +21,8 @@ const Email = () => {
     if (data.email) {
       const emailData = {
         order: "6",
-        title: order,
-        type: order,
+        title: "email",
+        type: "email",
         answer: data.email,
       };
       const localStorageData = getFromLocalStorage("quizData");
@@ -36,12 +35,12 @@ const Email = () => {
     }
   };
 
-  const disabled = Object.keys(errors).length;
+  let disabled = Object.keys(errors).length;
 
   return (
     <Wraper>
-      <Title>Email</Title>;
-      <SubTitle>Enter your email to get full access</SubTitle>
+      <Title>{t("email.email")}</Title>;
+      <SubTitle>{t("email.enterYourEmail")}</SubTitle>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <InputContainer>
           <Input
@@ -57,7 +56,7 @@ const Email = () => {
           />
           {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
           <Button type="submit" disabled={disabled} onClick={onSubmit}>
-            Next
+            {t("email.next")}
           </Button>
         </InputContainer>
       </FormContainer>
@@ -118,17 +117,4 @@ const Input = styled.input`
 const ErrorMessage = styled.span`
   color: #ff0099;
   margin: 5px 0;
-`;
-
-const SubmitButton = styled.button`
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff0099;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  &:hover {
-    background-color: #e6008e;
-  }
 `;

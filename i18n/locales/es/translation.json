@@ -1,0 +1,70 @@
+{
+  "quiz1": {
+    "question": "¿Cuál es tu idioma preferido?",
+    "subQuestion": "Elige idioma",
+    "questionsList": [
+      "Inglés",
+      "Francés",
+      "Alemán",
+      "Español"
+    ]
+  },
+  "quiz2": {
+    "question": "¿Con qué género te identificas?",
+    "subQuestion": "Por favor, comparte cómo te identificas",
+    "questionsList": [
+      "Femenino",
+      "Masculino",
+      "Otro"
+    ]
+  },
+  "quiz3": {
+    "question": "¿Cuál es tu edad?",
+    "subQuestion": "",
+    "questionsList": [
+      "18-29 años",
+      "30-39 años",
+      "40-49 años",
+      "50+"
+    ]
+  },
+  "quiz4": {
+    "question": "¿Qué es lo que más odias en un libro?",
+    "subQuestion": "",
+    "questionsList": [
+      "Falta de lógica",
+      "Una velocidad lenta",
+      "Falta de humor",
+      "Un final demasiado genérico"
+    ],
+    "next": "Siguiente"
+  },
+  "quiz5": {
+    "question": "¿Cuáles son tus temas favoritos?",
+    "subQuestion": "Elige hasta 3 temas que te gusten",
+    "questionsList": [
+      "Hombre lobo",
+      "Acción",
+      "Obsesión real",
+      "Multimillonario",
+      "Romance",
+      "Joven adulto",
+      "Chico malo"
+    ],
+    "next": "Siguiente"
+  },
+  "loader": {
+    "findingCollections": "Encontrando colecciones para ti..."
+  },
+  "email": {
+    "email": "Correo electrónico",
+    "enterYourEmail": "Ingresa tu correo electrónico para obtener acceso completo",
+    "next": "Siguiente"
+  },
+  "thankYou": {
+    "thankYou": "Gracias",
+    "forSupporting": "por apoyarnos y pasar el cuestionario",
+    "downloadAnswers": "Descargar mis respuestas",
+    "retakeQuiz": "Repetir cuestionario"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "quiz1": {
+    "question": "What is your preferred language?",
+    "subQuestion": "Choose language",
+    "questionsList": [
+      "English",
+      "French",
+      "German",
+      "Spanish"
+    ]
+  },
+  "quiz2": {
+    "question": "What gender do you identify with?",
+    "subQuestion": "Please share how do you identify yourself",
+    "questionsList": [
+      "Female",
+      "Male",
+      "Other"
+    ]
+  },
+  "quiz3": {
+    "question": "What is your age?",
+    "subQuestion": "",
+    "questionsList": [
+      "18-29 years",
+      "30-39 years",
+      "40-49 years",
+      "50+"
+    ]
+  },
+  "quiz4": {
+    "question": "What do you hate the most in a book?",
+    "subQuestion": "",
+    "questionsList": [
+      "Lack of logic",
+      "A slow speed",
+      "Lack of humor",
+      "Way too generic ending"
+    ],
+    "next": "Next"
+  },
+  "quiz5": {
+    "question": "What are your favorite topics?",
+    "subQuestion": "Choose up to 3 topics you like",
+    "questionsList": [
+      "Werewolf",
+      "Action",
+      "Royal Obsession",
+      "Billionaire",
+      "Romance",
+      "Young Adult",
+      "Bad Boy"
+    ],
+    "next": "Next"
+  },
+  "loader": {
+    "findingCollections": "Finding collections for you..."
+  },
+  "email": {
+    "email": "Email",
+    "enterYourEmail": "Enter your email to get full access",
+    "next": "Next"
+  },
+  "thankYou": {
+    "thankYou": "Thank you",
+    "forSupporting": "for supporting us and passing quiz",
+    "downloadAnswers": "Download my answers",
+    "retakeQuiz": "Retake quiz"
+  }
+}

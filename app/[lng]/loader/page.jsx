@@ -1,31 +1,35 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useTranslation } from "../../../i18n/client";
 import { useRouter } from "next/navigation";
 
-const Loader = () => {
-  const router = useRouter();
-
+const Loader = ({ params: { lng } }) => {
   const [progress, setProgress] = useState(0);
+  const { t } = useTranslation(lng);
+  const router = useRouter();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prevProgress) =>
         prevProgress < 100 ? prevProgress + 1 : 100
       );
-    }, 50); // 5000ms / 100 steps = 50ms per step
-    return () => {
-      return clearInterval(interval);
-    };
+    }, 50);
+
+    return () => clearInterval(interval);
   }, []);
 
-  if (progress === 100) router.push("/email", { scroll: false });
+  useEffect(() => {
+    if (progress === 100) {
+      router.push("/email", { scroll: false });
+    }
+  }, [progress, router]);
 
   return (
     <LoaderContainer>
       <ProgressCircle>
         <svg width="150" height="150">
-          <Circle
+          <CircleComponent
             cx="75"
             cy="75"
             r="70"
@@ -35,7 +39,7 @@ const Loader = () => {
         </svg>
         <Percentage>{progress}%</Percentage>
       </ProgressCircle>
-      <LoadingText>Finding collections for you...</LoadingText>
+      <LoadingText>{t("loader.findingCollections")}</LoadingText>
     </LoaderContainer>
   );
 };
@@ -48,20 +52,16 @@ const LoaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #1a001f;
 `;
 
 const ProgressCircle = styled.div`
   position: relative;
   width: 150px;
   height: 150px;
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 `;
 
-const Circle = styled.circle`
+const CircleComponent = styled.circle`
   fill: none;
   stroke: #ff0099;
   stroke-width: 8;

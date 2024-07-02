@@ -5,16 +5,13 @@ import { useRouter } from "next/navigation";
 
 const Header = ({ currentQuestion, totalQuestions }) => {
   const router = useRouter();
-  const handleClickBack = () => router.back();
 
   const progress = (currentQuestion / totalQuestions) * 100;
 
   return (
     <HeaderContainer>
-      {currentQuestion === "1" ? (
-        ""
-      ) : (
-        <BackButton onClick={handleClickBack}>&lt;</BackButton>
+      {currentQuestion === "1" ? null : (
+        <BackButton onClick={() => router.back()}>&lt;</BackButton>
       )}
       <QuestionInfo>
         {currentQuestion}/{totalQuestions}

@@ -5,10 +5,13 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "../components/Button";
 import { downloadCSVFile, getFromLocalStorage } from "../utils";
+import { useTranslation } from "../../../i18n/client";
+import download from "../../assets/download.png";
+import done from "../../assets/done.png";
 
-const ThankYou = () => {
+const ThankYou = ({ params: { lng } }) => {
   const router = useRouter();
-
+  const { t } = useTranslation(lng);
   const handleClick = () => {
     localStorage.removeItem("quizData");
     router.push("/", { scroll: false });
@@ -18,18 +21,18 @@ const ThankYou = () => {
 
   return (
     <Wraper>
-      <Title>Thank you</Title>
-      <SubTitle>for supporting us and passing quiz</SubTitle>
-      <Image src="/done.png" width={118} height={118} alt="done" />
+      <Title>{t("thankYou.thankYou")}</Title>
+      <SubTitle>{t("thankYou.forSupporting")}</SubTitle>
+      <Image src={done} width={118} height={118} alt="done" />
       <DownLoadBtn
         onClick={() =>
           downloadCSVFile(Object.values(userData), "questions_and_answers.csv")
         }
       >
-        <Image src="/download.png" width={42} height={42} alt="done" />
-        <span>Download my answers</span>
+        <Image src={download} width={42} height={42} alt="done" />
+        <span>{t("thankYou.downloadAnswers")}</span>
       </DownLoadBtn>
-      <Button onClick={handleClick}>Retake quiz</Button>
+      <Button onClick={handleClick}>{t("thankYou.retakeQuiz")}</Button>
     </Wraper>
   );
 };

@@ -3,5 +3,5 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  redirect("/quiz/1");
+  redirect(`/quiz/1`);
 }

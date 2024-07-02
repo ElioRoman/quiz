@@ -1,27 +1,33 @@
+"use client";
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "./Button";
-import { useRouter } from "next/navigation";
-import { useParams } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { saveToLocalStorage, getFromLocalStorage } from "../utils";
+import { useTranslation } from "../../../i18n/client";
+import Button from "./Button";
 
-const MultipleSelect = ({ questions }) => {
-  const { question, questionsList, subQuestion } = questions;
+const MultipleSelect = ({ lng }) => {
+  const { t } = useTranslation(lng);
   const router = useRouter();
   const params = useParams();
-
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const question = t(`quiz${params.id}.question`);
+  const subQuestion = t(`quiz${params.id}.subQuestion`);
+  const questionsList = t(`quiz${params.id}.questionsList`, {
+    returnObjects: true,
+  });
 
   const handleClick = () => {
     const data = {
-      order: params.id,
+      order: Number(params.id),
       title: question,
       type: "multiple-select",
       answer: selectedOptions,
     };
 
-    const localStorageData = getFromLocalStorage("quizData");
-    saveToLocalStorage(`quizData`, { ...localStorageData, [params.id]: data });
+    const localStorageData = getFromLocalStorage("quizData") || {};
+    saveToLocalStorage("quizData", { ...localStorageData, [params.id]: data });
 
     if (params.id !== "5") {
       router.push(`/quiz/${Number(params.id) + 1}`, { scroll: false });
@@ -30,11 +36,12 @@ const MultipleSelect = ({ questions }) => {
     }
   };
 
-  let disabled = selectedOptions.length <= 0;
+  let disabled = selectedOptions.length === 0;
 
   if (params.id === "5") {
-    disabled = selectedOptions.length > 3;
+    disabled = selectedOptions.length === 0 || selectedOptions.length > 3;
   }
+
   const handleSelectOption = (option) => {
     setSelectedOptions((prevSelectedOptions) =>
       prevSelectedOptions.includes(option)
@@ -60,7 +67,7 @@ const MultipleSelect = ({ questions }) => {
         </Option>
       ))}
       <Button onClick={handleClick} disabled={disabled}>
-        Next
+        {t(`quiz${params.id}.next`)}
       </Button>
     </OptionsContainer>
   );
@@ -101,7 +108,7 @@ const Option = styled.div`
     selected &&
     `
     background-color: #3c004e;
-    border-color: #e4229c
+    border-color: #e4229c;
   `}
 `;
 

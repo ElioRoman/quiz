@@ -1,35 +1,39 @@
-import React from "react";
+"use client";
 import styled from "styled-components";
-import { useRouter } from "next/navigation";
-import { useParams } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { getFromLocalStorage, saveToLocalStorage } from "../utils";
+import { useTranslation } from "../../../i18n/client";
 
-const SingleSelect = ({ questions }) => {
-  const { question, questionsList, subQuestion } = questions;
+const SingleSelect = ({ lng }) => {
   const router = useRouter();
   const params = useParams();
+  const { t } = useTranslation(lng);
 
   const handleClick = (e) => {
     const data = {
-      order: params.id,
-      title: question,
+      order: Number(params.id),
+      title: t(`quiz${params.id}.question`),
       type: "single-select",
       answer: e.target.innerText,
     };
-
     const localStorageData = getFromLocalStorage("quizData");
     saveToLocalStorage(`quizData`, { ...localStorageData, [params.id]: data });
 
     router.push(`/quiz/${Number(params.id) + 1}`, { scroll: false });
   };
+  const question = t(`quiz${params.id}.question`);
+  const subQuestion = t(`quiz${params.id}.subQuestion`);
+  const questionsList = t(`quiz${params.id}.questionsList`, {
+    returnObjects: true,
+  });
 
   return (
     <div>
       <QuestionTitle>{question}</QuestionTitle>
       <QuestionSubTitle>{subQuestion}</QuestionSubTitle>
       {questionsList.map((question, index) => (
-        <QuestionList onClick={handleClick} key={index}>
-          <span>{question}</span>
+        <QuestionList onClick={(e) => handleClick(e)} key={index}>
+          <option>{question}</option>
         </QuestionList>
       ))}
     </div>

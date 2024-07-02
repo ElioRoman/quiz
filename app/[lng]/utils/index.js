@@ -26,7 +26,6 @@ function convertArrayToCSV(arr) {
   return csvRows.join("\n");
 }
 
-// Функція для створення та завантаження CSV файлу
 export function downloadCSVFile(data, filename) {
   const csvData = convertArrayToCSV(data);
   const blob = new Blob([csvData], { type: "text/csv;charset=utf-8;" });
@@ -42,3 +41,10 @@ export function downloadCSVFile(data, filename) {
     document.body.removeChild(link);
   }
 }
+
+export const locales = {
+  English: "en",
+  French: "fr",
+  Spanish: "es",
+  German: "de",
+};

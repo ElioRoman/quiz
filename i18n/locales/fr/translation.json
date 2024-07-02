@@ -1,0 +1,70 @@
+{
+  "quiz1": {
+    "question": "Quelle est votre langue préférée?",
+    "subQuestion": "Choisissez la langue",
+    "questionsList": [
+      "Anglais",
+      "Français",
+      "Allemand",
+      "Espagnol"
+    ]
+  },
+  "quiz2": {
+    "question": "Avec quel genre vous identifiez-vous?",
+    "subQuestion": "Veuillez partager comment vous vous identifiez",
+    "questionsList": [
+      "Femme",
+      "Homme",
+      "Autre"
+    ]
+  },
+  "quiz3": {
+    "question": "Quel est votre âge?",
+    "subQuestion": "",
+    "questionsList": [
+      "18-29 ans",
+      "30-39 ans",
+      "40-49 ans",
+      "50+"
+    ]
+  },
+  "quiz4": {
+    "question": "Qu'est-ce que vous détestez le plus dans un livre?",
+    "subQuestion": "",
+    "questionsList": [
+      "Manque de logique",
+      "Un rythme lent",
+      "Manque d'humour",
+      "Une fin trop générique"
+    ],
+    "next": "Suivant"
+  },
+  "quiz5": {
+    "question": "Quels sont vos sujets préférés?",
+    "subQuestion": "Choisissez jusqu'à 3 sujets que vous aimez",
+    "questionsList": [
+      "Loup-garou",
+      "Action",
+      "Obsession royale",
+      "Milliardaire",
+      "Romance",
+      "Jeune adulte",
+      "Mauvais garçon"
+    ],
+    "next": "Suivant"
+  },
+  "loader": {
+    "findingCollections": "Recherche de collections pour vous..."
+  },
+  "email": {
+    "email": "E-mail",
+    "enterYourEmail": "Entrez votre e-mail pour obtenir un accès complet",
+    "next": "Suivant"
+  },
+  "thankYou": {
+    "thankYou": "Merci",
+    "forSupporting": "pour votre soutien et d'avoir passé le questionnaire",
+    "downloadAnswers": "Télécharger mes réponses",
+    "retakeQuiz": "Reprendre le questionnaire"
+  }
+}
