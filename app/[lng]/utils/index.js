@@ -42,9 +42,3 @@ export function downloadCSVFile(data, filename) {
   }
 }
 
-export const locales = {
-  English: "en",
-  French: "fr",
-  Spanish: "es",
-  German: "de",
-};
