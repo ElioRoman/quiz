@@ -14,4 +14,4 @@ Javascript, React, styled-components, react-hook-form, i18n,
 
 ## Demo
 
-https://gallery-3uswdblki-elioromans-projects.vercel.app/
+https://quiz-i2i8zyidw-elioromans-projects.vercel.app
